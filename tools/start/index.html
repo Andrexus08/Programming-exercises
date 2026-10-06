@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tools of the Trade</title>
+    <link rel="icon" href="data:," />
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 40rem;
+        margin: 3rem auto;
+        padding: 0 1rem;
+        line-height: 1.5;
+      }
+      button {
+        font-size: 1.5rem;
+        padding: 0.5rem 2rem;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tools of the Trade</h1>
+    <p>
+      Press Play to hear the song. Open the browser console to see what
+      <code>script.js</code> logs.
+    </p>
+    <button id="play">Play</button>
+
+    <!-- Tone.js: the library from Tuesday afternoon. It needs an internet connection. -->
+    <script src="https://unpkg.com/tone@15.1.22/build/Tone.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
