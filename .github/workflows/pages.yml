@@ -1,0 +1,56 @@
+# Publishes the repository to GitHub Pages on every push to main,
+# so each exercise's index.html can be opened in the browser.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # Only the course repository publishes; student forks skip this job.
+    if: github.repository == 'IDBCourses/kd402d-exercises'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build site
+        run: |
+          mkdir _site
+          git archive HEAD | tar -x -C _site --exclude='.github' --exclude='.vscode'
+
+          # Generate a landing page listing every exercise, unless one exists.
+          if [ ! -f _site/index.html ]; then
+            {
+              echo '<!doctype html>'
+              echo '<html lang="en"><head><meta charset="utf-8">'
+              echo '<meta name="viewport" content="width=device-width, initial-scale=1">'
+              echo '<title>KD402D Exercises</title>'
+              echo '<style>body{font-family:system-ui,sans-serif;max-width:40rem;margin:2rem auto;padding:0 1rem;line-height:1.5}</style>'
+              echo '</head><body><h1>KD402D Programming — Exercises</h1><ul>'
+              (cd _site && find . -mindepth 2 -name index.html | sed 's|^\./||' | sort) | while read -r page; do
+                echo "<li><a href=\"${page%index.html}\">${page%/index.html}</a></li>"
+              done
+              echo '</ul></body></html>'
+            } > _site/index.html
+          fi
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
