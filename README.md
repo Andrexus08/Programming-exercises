@@ -31,7 +31,7 @@ The new session folder now appears in VS Code.
 There is one folder per session, named after the topic of that day's lecture:
 
 ```
-tools/
+functions/
 ├── start/       ← your starting point. Work here.
 ├── in-class/    ← what we wrote together in class (added after the session)
 └── reference/   ← a finished version to compare with (added after the session)
