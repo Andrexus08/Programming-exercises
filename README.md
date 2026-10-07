@@ -5,12 +5,13 @@ This repository holds the exercises for the afternoon sessions in KD402D Program
 ## Setting up (once)
 
 1. Install [VS Code](https://code.visualstudio.com).
-2. On GitHub, click **Fork** at the top of this page. This makes your own copy of the repository under your account.
-3. In VS Code, open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) and run **Git: Clone**.
-4. Choose **your fork** (it has your username in it — not the course's original).
-5. Save it in a normal folder on your computer, for example `Documents/code`. Avoid OneDrive, iCloud or Dropbox folders.
-6. Open the folder in VS Code (File > Open Folder).
-7. Click **Install** when VS Code offers the recommended extensions.
+1. On GitHub, click **Fork** at the top of this page. This makes your own copy of the repository under your account.
+1. In VS Code, open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) and run **Git: Clone**.
+1. **If** git is not working on your computer yet, got to the [VS Code Documentation](https://code.visualstudio.com/docs/sourcecontrol/overview) and follow the instructions for installing git.
+1. Choose **your fork** (it has your username in it — not the course's original).
+1. Save it in a normal folder on your computer, for example `Documents/code`. Avoid OneDrive, iCloud or Dropbox folders.
+1. Open the folder in VS Code (File > Open Folder).
+1. Click **Install** when VS Code offers the recommended extensions.
 
 ### How VS Code is set up
 
