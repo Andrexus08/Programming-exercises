@@ -88,24 +88,28 @@ console.log("Exercise 6: a4 is still " + a4); // working out a new value leaves 
 // 440 is a frequency, 4 (in octave) is a position on the keyboard, 90 (in bpm) is a speed.
 // All numbers. What each one means comes from how we use it, and what we name it.
 
-// ---------- Exercise 7: a chord from a string ----------
-const chord = "c4 e4 g4";
-
-console.log("Exercise 7: " + chord.toUpperCase()); // "C4 E4 G4"
-console.log("Exercise 7: the chord is " + chord.length + " characters long"); // 8: the spaces count
-
-const tidyChord = chord.toUpperCase();
-const bottomNote = tidyChord.slice(0, 2); // "C4"
-const middleNote = tidyChord.slice(3, 5); // "E4"
-const topNote = tidyChord.slice(6, 8); // "G4"
+// ---------- Exercise 7: a chord ----------
+// synth plays one note at a time, like one voice singing. That's all Tuesday's riff needed.
+// A chord is several notes sounding at the same time. For that we need chordSynth, made at the
+// top of this file: a PolySynth ("poly" means many), which can play several notes at once.
+const bottomNote = "c4";
+const middleNote = "e4";
+const topNote = "g4";
 
 function exercise7(start) {
+  // On synth, the second call stops everything with an error:
+  // Start time must be strictly greater than previous start time.
+  // One voice can't start a second note at the moment it starts the first.
   chordSynth.triggerAttackRelease(bottomNote, "2n", start);
   chordSynth.triggerAttackRelease(middleNote, "2n", start);
   chordSynth.triggerAttackRelease(topNote, "2n", start);
 }
 
-console.log("Exercise 7: chord is still " + chord); // each method made a new value; chord is untouched
+const chord = bottomNote + " " + middleNote + " " + topNote; // "c4 e4 g4"
+console.log("Exercise 7: " + chord);
+console.log("Exercise 7: " + chord.toUpperCase()); // "C4 E4 G4"
+console.log("Exercise 7: the chord is " + chord.length + " characters long"); // 8: the spaces count
+console.log("Exercise 7: chord is still " + chord); // toUpperCase made a new value; chord is untouched
 
 // ---------- Exercise 8: bug hunt ----------
 // The octave arrives as text, the way it would from a text box on a web page.
