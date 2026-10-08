@@ -85,22 +85,26 @@ function exercise6(start) {
 
 // TODO 6d: log a4 * 2, then log a4. Did multiplying change what a4 holds?
 
-// ---------- Exercise 7: a chord from a string ----------
-const chord = "c4 e4 g4";
-
-// TODO 7a: log chord.toUpperCase()
-// TODO 7b: log chord.length. Predict first: do the spaces count?
-// TODO 7c: store the tidy version: const tidyChord = chord.toUpperCase();
-//          Then slice out each note into its own variable:
-//            const bottomNote = tidyChord.slice(0, 2);
-//          and the same for middleNote (slice(3, 5)) and topNote (slice(6, 8)).
+// ---------- Exercise 7: a chord ----------
+// synth plays one note at a time, like one voice singing. That's all Tuesday's riff needed.
+// A chord is several notes sounding at the same time. For that we need chordSynth, made at the
+// top of this file: a PolySynth ("poly" means many), which can play several notes at once.
+const bottomNote = "c4";
+const middleNote = "e4";
+const topNote = "g4";
 
 function exercise7(start) {
-  // TODO 7d: play your three notes together: three calls, all at start, on chordSynth:
-  //          chordSynth.triggerAttackRelease(bottomNote, "2n", start);
+  synth.triggerAttackRelease(bottomNote, "2n", start);
+  synth.triggerAttackRelease(middleNote, "2n", start);
+  synth.triggerAttackRelease(topNote, "2n", start);
 }
 
-// TODO 7e: log chord one last time. Has it changed?
+// TODO 7a: play exercise 7 as it is. How many notes do you hear? Read the red error in the console.
+// TODO 7b: in exercise7, change synth to chordSynth in all three calls. Play again.
+// TODO 7c: glue the three notes into one string, with a space between each, and log it:
+//            const chord = bottomNote + " " + middleNote + " " + topNote;
+// TODO 7d: log chord.toUpperCase(), then chord.length. Predict the length first: do the spaces count?
+// TODO 7e: log chord one last time. Has toUpperCase changed it?
 
 // ---------- Exercise 8: bug hunt ----------
 // The octave arrives as text, the way it would from a text box on a web page.

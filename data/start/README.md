@@ -25,12 +25,12 @@ Do them in order. After each one: save, press its button, check the console, and
 | 4        | Call `playNote` with variables instead of values    | `Use variables as arguments`            |
 | 5        | Log each note as it plays                           | `Log each note as it plays`             |
 | 6        | Work out new pitches from 440                       | `Work out pitches from a frequency`     |
-| 7        | Slice a chord out of a string and play it           | `Play a chord sliced from a string`     |
+| 7        | Play three notes at once on `chordSynth`            | `Play a chord on chordSynth`            |
 | 8        | Find and fix the octave bug                         | `Fix the octave that arrives as text`   |
 
 **Blue track** (when 1–8 are done): B1 and B2 at the bottom of `script.js`.
 
-**Purple track** (when 1–8 are done, if you have coded before): a generative piece in `generative.js`, steps P1 to P4. It uses two things the lecture held back: template literals and `Math.random()`.
+**Purple track** (when 1–8 are done, if you have coded before): a generative piece in `generative.js`, steps P1 to P4. It uses three things the lecture held back: template literals, `Math.random()` and `.slice()`.
 
 ## If something goes wrong
 
@@ -40,4 +40,4 @@ Do them in order. After each one: save, press its button, check the console, and
 - **`SyntaxError: Identifier 'note' has already been declared`:** two `const` or `let` lines make the same name. Give the second one a new name, or drop the `let` to change the one you have.
 - **A note sounds wildly wrong, or not at all:** log the note before you play it. Is it really `"C5"`, or is it `"C41"`?
 - **No sound:** check the volume and your headphones. Sound only starts after you click a button.
-- **`Start time must be strictly greater than previous start time`:** two notes on one synth asked to start at the same moment. Give each one its own time. (`chordSynth` can play several at once.)
+- **`Start time must be strictly greater than previous start time`:** two notes on one synth asked to start at the same moment. `synth` plays one note at a time: give each note its own time, or play them on `chordSynth`, which can play several at once (exercise 7 starts with this error on purpose).

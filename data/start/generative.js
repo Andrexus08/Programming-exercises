@@ -1,7 +1,7 @@
 // Purple track: a generative piece
 // A small piece that plays itself, different every time.
 // Do the steps in order (P1 to P4) and stop wherever time runs out.
-// New today: template literals (`...${value}...`) and Math.random().
+// New today: template literals (`...${value}...`), Math.random() and .slice().
 
 const lead = new Tone.Synth().toDestination();
 const transport = Tone.getTransport(); // Tone's clock: it keeps musical time
@@ -14,7 +14,9 @@ const tempo = 100;
 function playRandomNote(time) {
   // TODO P1a: pick a random position in scale:
   //           const index = Math.floor(Math.random() * scale.length);
-  // TODO P1b: take the letter at that position with .slice(index, index + 1)
+  // TODO P1b: take the letter at that position with scale.slice(index, index + 1)
+  //           .slice(from, to) gives back the part of a string from one position up to, not
+  //           including, the other. Positions count from 0: "CDEGA".slice(1, 2) is "D".
   // TODO P1c: pick a random octave, 4 or 5: Math.floor(Math.random() * 2) + 4
   // TODO P1d: build the note with a template literal: `${pitch}${randomOctave}`
   // TODO P1e: log it with a template literal (`Playing ${note}`), then play it:
